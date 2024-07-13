@@ -22,15 +22,15 @@ jobs:
       - name: Rust setup
         uses: dtolnay/rust-toolchain@stable
 
-      - name: Install pnpm
-        run: npm install -g pnpm
-      - name: Sync node version and setup cache
-        uses: actions/setup-node@v3
-        with:
-          node-version: "lts/*"
-          cache: "pnpm"
+      # - name: Install pnpm
+      #   run: npm install -g pnpm
+      # - name: Sync node version and setup cache
+      #   uses: actions/setup-node@v3
+      #   with:
+      #     node-version: "lts/*"
+      #     cache: "pnpm"
       - name: Install frontend dependencies
-        run: pnpm install --no-frozen-lockfile
+        run: npm install --legacy-peer-deps
       - name: Build the app # 使用tauri actions
         id: build
         uses: tauri-apps/tauri-action@v0
